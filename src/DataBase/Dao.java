@@ -4,7 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-public class SQLJDBC {
+public class Dao {
     public Connection connect() {
         Connection cnn = null;
         try {
@@ -13,14 +13,12 @@ public class SQLJDBC {
             String url = "jdbc:mysql://remotemysql.com:3306/079yZXjtkg";
             cnn = DriverManager.getConnection(url, username, passwordBase);
             System.out.println("Connection to base has been established.");
-
-//            return cnn;
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
         return cnn;
     }
-    public void closeConnection(){
+    public void closeConnection() {
         try {
             connect().close();
         } catch (SQLException e) {

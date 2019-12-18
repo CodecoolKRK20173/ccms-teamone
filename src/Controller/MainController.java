@@ -2,8 +2,8 @@ package Controller;
 
 public class MainController {
 
-    public void run(){
-        View_controller view_controller = new View_controller();
-        view_controller.print("działa");
+    public void run() {
+        ViewController view_controller = new ViewController();
+        view_controller.write("Working");
     }
 }

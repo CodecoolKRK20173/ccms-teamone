@@ -1,13 +1,12 @@
 import Controller.MainController;
-import DataBase.SQLJDBC;
+import DataBase.Dao;
 
 public class Main {
   public  static void main(String[] args) {
-//        SQLJDBC sqljdbc = new SQLJDBC();
-//        System.out.println("Test");
-//        sqljdbc.connect();
-//        sqljdbc.closeConnection();
+      Dao dao = new Dao();
       MainController mainController = new MainController();
+      dao.connect();
       mainController.run();
+      dao.closeConnection();
   }
 }
