@@ -22,8 +22,7 @@ public class LoginController  {
             String password = "qwe";
 
             String sql = "SELECT * FROM Users where Name='"+UName+"'and Password='"+password+"'";
-            Statement statement = dao.connect().createStatement();
-            ResultSet resultSet = statement.executeQuery(sql);
+            ResultSet resultSet = dao.connect().executeQuery(sql);
 
 
 

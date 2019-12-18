@@ -3,9 +3,10 @@ package DataBase;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.sql.Statement;
 
 public class Dao {
-    public Connection connect() {
+    public Statement connect() throws SQLException {
         Connection cnn = null;
         try {
             String username = "079yZXjtkg";
@@ -16,7 +17,7 @@ public class Dao {
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
-        return cnn;
+        return cnn.createStatement();
     }
 
     public void closeConnection() {
