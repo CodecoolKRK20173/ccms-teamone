@@ -1,8 +1,10 @@
 import Controller.MainController;
-import DataBase.SQLJDBC;
+import DataBase.Dao;
+
+import java.sql.SQLException;
 
 public class Main {
-  public  static void main(String[] args) {
+  public  static void main(String[] args) throws SQLException {
 //        SQLJDBC sqljdbc = new SQLJDBC();
 //        System.out.println("Test");
 //        sqljdbc.connect();
