@@ -18,6 +18,7 @@ public class Dao {
         }
         return cnn;
     }
+
     public void closeConnection() {
         try {
             connect().close();
