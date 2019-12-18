@@ -4,8 +4,8 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-public class Dao {
-    public static Connection connect() {
+public class SQLJDBC {
+    public Connection connect() {
         Connection cnn = null;
         try {
             String username = "079yZXjtkg";
@@ -17,15 +17,14 @@ public class Dao {
 //            return cnn;
         } catch (SQLException e) {
             System.out.println(e.getMessage());
-        } finally {
-            try {
-                if (cnn != null) {
-                    cnn.close();
-                }
-            } catch (SQLException ex) {
-                System.out.println(ex.getMessage());
-            }
         }
         return cnn;
+    }
+    public void closeConnection(){
+        try {
+            connect().close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 }
