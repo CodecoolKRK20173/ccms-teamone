@@ -1,9 +1,6 @@
 package Users;
 
-
-
 public abstract class User {
-
     int id;
     String name;
     String password;
@@ -21,7 +18,4 @@ public abstract class User {
         this.phoneNumber = phoneNumber;
         this.address = address;
     }
-
-
-
 }
