@@ -4,7 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-public class SQLJDBC {
+public class Dao {
     public Connection connect() {
         Connection cnn = null;
         try {
@@ -20,6 +20,7 @@ public class SQLJDBC {
         }
         return cnn;
     }
+
     public void closeConnection(){
         try {
             connect().close();

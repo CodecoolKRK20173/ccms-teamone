@@ -1,10 +1,10 @@
-import DataBase.SQLJDBC;
+import DataBase.Dao;
 
 public class Main {
     public static void main(String[] args) {
-        SQLJDBC sqljdbc = new SQLJDBC();
+        Dao dao = new Dao();
         System.out.println("Test");
-        sqljdbc.connect();
-        sqljdbc.closeConnection();
+        dao.connect();
+        dao.closeConnection();
     }
 }
