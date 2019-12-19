@@ -28,7 +28,6 @@ public class LoginController  {
                 ResultSet resultSQL = getResult(sql);
                 int accType = getAccountType(resultSQL);
                 vc.write("" + accType);
-
                 menu.adminMenu();
             }
         } catch (SQLException sql) {
@@ -36,26 +35,16 @@ public class LoginController  {
         } finally {
             dao.closeConnection();
         }
-
-
     }
 
-
     public int getAccountType(ResultSet resultSet) throws SQLException {
-
-
         int intType = 0;
         while (resultSet.next()) {
-
             String type = resultSet.getString("ID_Type");
-
             intType = Integer.parseInt(type);
-
-
         }
         return intType;
     }
-
 
     public ResultSet getResult (String sql) throws SQLException {
         return dao.connect().executeQuery(sql);

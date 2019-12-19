@@ -1,13 +1,13 @@
 package View;
-import Controller.MenuController;
 
+import Controller.MenuController;
 import Controller.ViewController;
 
 public class Menu {
     private ViewController vc = new ViewController();
-    private MenuController menuController = new MenuController()
 
     public void adminMenu() {
+        MenuController mc = new MenuController();
         System.out.println("(0) Exit");
         System.out.println("(1) Add new mentor");
         System.out.println("(2) List all mentors");
@@ -15,9 +15,33 @@ public class Menu {
         System.out.println("(4) Edit mentor data");
         System.out.println("(5) List all students");
         int choice = vc.input().nextInt();
-        menuController.adminChoose(choice);
+        mc.adminChoose(choice);
     }
 
+    public void mentorMenu() {
+        MenuController mc = new MenuController();
+        System.out.println("(0) Exit");
+        System.out.println("(1) Add a student to the class");
+        System.out.println("(2) Remove student from a class");
+        System.out.println("(3) Edit student data");
+        System.out.println("(4) List of students");
+        System.out.println("(5) Add assignment");
+        System.out.println("(6) Grade an assignment");
+        int choice = vc.input().nextInt();
+    }
 
+    public void studentMenu() {
+        MenuController mc = new MenuController();
+        System.out.println("(0) Exit");
+        System.out.println("(1) Submit an assignment to mentor");
+        System.out.println("(2) View my grades");
+        int choice = vc.input().nextInt();
+    }
 
+    public void employeeMenu() {
+        MenuController mc = new MenuController();
+        System.out.println("(0) Exit");
+        System.out.println("(1) See list of students");
+        int choice = vc.input().nextInt();
+    }
 }
