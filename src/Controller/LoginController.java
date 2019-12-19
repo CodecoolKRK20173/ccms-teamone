@@ -1,33 +1,42 @@
 package Controller;
 
 import DataBase.Dao;
-import View.Menu;
-
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class LoginController  {
+public class LoginController {
+    private Dao dao = new Dao();
 
     public LoginController() throws SQLException {
-        Dao dao = new Dao();
         ViewController vc = new ViewController();
         try {
-            System.out.print("Enter your login: ");
-            String username = vc.input().nextLine();
-            System.out.print("Enter your password: ");
-            String userPassword = vc.input().nextLine();
-            String sql = "SELECT * FROM Users where Name='" + username + "'and Password='" + userPassword + "'";
+            String sql = "SELECT * FROM Users where Name='" + vc.userLogin() + "'and Password='" + vc.userPassword() + "'";
             ResultSet resultSet = dao.connect().executeQuery(sql);
-            if(!resultSet.next()) {
-                System.out.println("Wrong username or password!");
-
+            if (!resultSet.next()) {
+                vc.wrongLoginData();
             } else {
-                System.out.println("You are logged!");
+                vc.userLogged();
+                ResultSet resultSQL = getResult(sql);
+                int accType = getAccountType(resultSQL);
+                vc.write("" + accType);
             }
         } catch (SQLException sql) {
-            System.out.println("Error!");
+            vc.error();
         } finally {
             dao.closeConnection();
         }
+    }
+
+    public int getAccountType(ResultSet resultSet) throws SQLException {
+        int intType = 0;
+        while (resultSet.next()) {
+            String type = resultSet.getString("ID_Type");
+            intType = Integer.parseInt(type);
+        }
+        return intType;
+    }
+
+    public ResultSet getResult (String sql) throws SQLException {
+        return dao.connect().executeQuery(sql);
     }
 }
