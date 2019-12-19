@@ -12,10 +12,10 @@ import java.sql.Statement;
 
 
 public class LoginController  {
+    private  Dao dao = new Dao();
 
 
     public LoginController() throws SQLException {
-       Dao dao = new Dao();
         ViewController view = new ViewController();
 
 
@@ -71,7 +71,6 @@ public class LoginController  {
 
 
     public ResultSet getResult (String sql) throws SQLException {
-        Dao dao = new Dao();
         ResultSet resultSet = dao.connect().executeQuery(sql);
         return resultSet;
     }

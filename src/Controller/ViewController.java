@@ -2,7 +2,9 @@ package Controller;
 
 import java.util.Scanner;
 
+
 public class ViewController {
+
 
     public Scanner input() {
         return new Scanner(System.in);
@@ -25,4 +27,7 @@ public class ViewController {
     public void write(String string){
         System.out.println(string);
     }
+
+
+
 }
