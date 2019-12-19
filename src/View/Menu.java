@@ -1,9 +1,11 @@
 package View;
+import Controller.MenuController;
 
 import Controller.ViewController;
 
 public class Menu {
     private ViewController vc = new ViewController();
+    private MenuController menuController = new MenuController()
 
     public void adminMenu() {
         System.out.println("(0) Exit");
@@ -13,42 +15,9 @@ public class Menu {
         System.out.println("(4) Edit mentor data");
         System.out.println("(5) List all students");
         int choice = vc.input().nextInt();
-        adminChoose(choice);
+        menuController.adminChoose(choice);
     }
 
-    public void adminChoose(int number){
-        switch (number) {
-            case 0: {
-                System.exit(0);
-                break;
-            }
-            case 1: {
-                System.out.println("jeden");
-                break;
-            }
-            case 2: {
-                System.out.println("dwa");
-                break;
-            }
-            case 3: {
-                System.out.println("jtrzy");
-                break;
-            }
-            case 4: {
-                System.out.println("cztery");
-                break;
-            }
-            case 5: {
-                System.out.println("piec");
-                break;
-            }
 
-            default: {
-                adminMenu();
-                break;
-            }
-        }
-
-    }
 
 }
