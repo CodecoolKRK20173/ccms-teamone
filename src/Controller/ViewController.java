@@ -1,8 +1,10 @@
 package Controller;
 
+import java.util.Scanner;
+
 public class ViewController {
 
-    public void write(String text) {
-        System.out.println(text);
+    public Scanner input() {
+        return new Scanner(System.in);
     }
 }

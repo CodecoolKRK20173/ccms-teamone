@@ -1,11 +1,10 @@
 package Controller;
 
 import DataBase.Dao;
+import View.Menu;
 
-import javax.swing.*;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 
 public class LoginController  {
 
@@ -13,18 +12,20 @@ public class LoginController  {
         Dao dao = new Dao();
         ViewController vc = new ViewController();
         try {
-            String Username = "Testo";
-            String UserPassword = "qwe";
-            String sql = "SELECT * FROM Users where Name='" + Username + "'and Password='" + UserPassword + "'";
+            System.out.print("Enter your login: ");
+            String username = vc.input().nextLine();
+            System.out.print("Enter your password: ");
+            String userPassword = vc.input().nextLine();
+            String sql = "SELECT * FROM Users where Name='" + username + "'and Password='" + userPassword + "'";
             ResultSet resultSet = dao.connect().executeQuery(sql);
             if(!resultSet.next()) {
-                vc.write("Wrong username or password");
+                System.out.println("Wrong username or password!");
 
             } else {
-                vc.write("You are logged");
+                System.out.println("You are logged!");
             }
         } catch (SQLException sql) {
-            vc.write("sql exception");
+            System.out.println("Error!");
         } finally {
             dao.closeConnection();
         }

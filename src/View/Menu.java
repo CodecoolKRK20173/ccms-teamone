@@ -1,12 +1,9 @@
 package View;
 
-import java.util.Scanner;
+import Controller.ViewController;
 
 public class Menu {
-
-    public Scanner input() {
-        return new Scanner(System.in);
-    }
+    private ViewController vc = new ViewController();
 
     public String adminMenu() {
         System.out.println("(0) Exit");
@@ -15,7 +12,7 @@ public class Menu {
         System.out.println("(3) Remove mentor");
         System.out.println("(4) Edit mentor data");
         System.out.println("(5) List all students");
-        String choice = input().nextLine();
+        String choice = vc.input().nextLine();
         return choice;
     }
 }
