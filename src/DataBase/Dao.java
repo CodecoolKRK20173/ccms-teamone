@@ -6,8 +6,9 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class Dao {
+    private Connection cnn = null;
+
     public Statement connect() throws SQLException {
-        Connection cnn = null;
         try {
             String username = "079yZXjtkg";
             String passwordBase = "e4wKGw62Tl";
@@ -16,15 +17,14 @@ public class Dao {
             System.out.println("Connection to base has been established.");
         } catch (SQLException e) {
             System.out.println(e.getMessage());
+        } finally {
+            if (cnn != null)
+                cnn.close();
         }
         return cnn.createStatement();
     }
 
-    public void closeConnection() {
-        try {
-            connect().close();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+    public void closeConnection() throws SQLException {
+        cnn.close();
     }
 }

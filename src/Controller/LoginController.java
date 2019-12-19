@@ -7,50 +7,26 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-
-
 public class LoginController  {
 
-
     public LoginController() throws SQLException {
-       Dao dao = new Dao();
-        ViewController v = new ViewController();
-
-
+        Dao dao = new Dao();
+        ViewController vc = new ViewController();
         try {
-            String UName = "Testo";
-            String password = "qwe";
-
-            String sql = "SELECT * FROM Users where Name='"+UName+"'and Password='"+password+"'";
+            String Username = "Testo";
+            String UserPassword = "qwe";
+            String sql = "SELECT * FROM Users where Name='" + Username + "'and Password='" + UserPassword + "'";
             ResultSet resultSet = dao.connect().executeQuery(sql);
-
-
-
             if(!resultSet.next()) {
-                v.write("wrong username or password");
+                vc.write("Wrong username or password");
 
+            } else {
+                vc.write("You are logged");
             }
-            else {
-                v.write("YOU ARE iN ");
-            }
-
-
-
         } catch (SQLException sql) {
-            ViewController viewController = new ViewController();
-            v.write("sql exception");
-        }finally{
-            //closing ResultSet,PreparedStatement and Connection object
-
-
+            vc.write("sql exception");
+        } finally {
+            dao.closeConnection();
         }
-
-
-
-
-        System.out.println("loginController");
-
-
-
     }
 }
