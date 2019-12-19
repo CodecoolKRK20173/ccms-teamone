@@ -2,32 +2,35 @@ package Controller;
 
 import java.util.Scanner;
 
-
 public class ViewController {
-
 
     public Scanner input() {
         return new Scanner(System.in);
     }
 
-    public void labelUserLogin(){
-        System.out.println("Enter Username");
-    }
-    public void labelUserPassword(){
-        System.out.println("Enter Password");
+    public void write(String text) {
+        System.out.println(text);
     }
 
-    public void labelWrongLogin(){
-        System.out.println("Wrrong Username or password");
-    }
-    public void labelUserLogged(){
-        System.out.println("YOU ARE LOGGED");
+    public String userLogin() {
+        System.out.print("Enter your login: ");
+        return input().nextLine();
     }
 
-    public void write(String string){
-        System.out.println(string);
+    public String userPassword() {
+        System.out.print("Enter your password: ");
+        return input().nextLine();
     }
 
+    public void wrongLoginData() {
+        System.out.println("Wrong username or password!");
+    }
 
+    public void userLogged() {
+        System.out.println("You are logged!");
+    }
 
+    public void error() {
+        System.out.println("Error!");
+    }
 }
