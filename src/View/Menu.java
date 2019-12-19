@@ -15,4 +15,6 @@ public class Menu {
         String choice = vc.input().nextLine();
         return choice;
     }
+
+
 }
