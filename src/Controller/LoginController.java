@@ -19,15 +19,11 @@ public class LoginController  {
     public LoginController() throws SQLException {
         ViewController vc = new ViewController();
         try {
-            String sql = "SELECT * FROM Users where Name='" + vc.userLogin() + "'and Password='" + vc.userPassword() + "'";
-            ResultSet resultSet = dao.connect().executeQuery(sql);
-            if (!resultSet.next()) {
+            String sql = "SELECT * FROM Users WHERE Name='" + vc.userLogin() + "'AND Password='" + vc.userPassword() + "';";
+            if (!getResult(sql).next()) {
                 vc.wrongLoginData();
             } else {
                 vc.userLogged();
-                ResultSet resultSQL = getResult(sql);
-                int accType = getAccountType(resultSQL);
-                vc.write("" + accType);
                 menu.adminMenu();
             }
         } catch (SQLException sql) {

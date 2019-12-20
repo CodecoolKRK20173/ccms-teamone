@@ -33,4 +33,8 @@ public class ViewController {
     public void error() {
         System.out.println("Error!");
     }
+
+    public void add() {
+        System.out.println("Added!");
+    }
 }

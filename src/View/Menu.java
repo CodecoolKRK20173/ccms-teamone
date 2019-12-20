@@ -3,12 +3,14 @@ package View;
 import Controller.MenuController;
 import Controller.ViewController;
 
+import java.sql.SQLException;
+
 public class Menu {
     private ViewController vc = new ViewController();
 
-    public void adminMenu() {
+    public void adminMenu() throws SQLException {
         MenuController mc = new MenuController();
-        System.out.println("(0) Exit");
+        System.out.println("\n(0) Exit");
         System.out.println("(1) Add new mentor");
         System.out.println("(2) List all mentors");
         System.out.println("(3) Remove mentor");
@@ -20,7 +22,7 @@ public class Menu {
 
     public void mentorMenu() {
         MenuController mc = new MenuController();
-        System.out.println("(0) Exit");
+        System.out.println("\n(0) Exit");
         System.out.println("(1) Add a student to the class");
         System.out.println("(2) Remove student from a class");
         System.out.println("(3) Edit student data");
@@ -32,7 +34,7 @@ public class Menu {
 
     public void studentMenu() {
         MenuController mc = new MenuController();
-        System.out.println("(0) Exit");
+        System.out.println("\n(0) Exit");
         System.out.println("(1) Submit an assignment to mentor");
         System.out.println("(2) View my grades");
         int choice = vc.input().nextInt();
@@ -40,7 +42,7 @@ public class Menu {
 
     public void employeeMenu() {
         MenuController mc = new MenuController();
-        System.out.println("(0) Exit");
+        System.out.println("\n(0) Exit");
         System.out.println("(1) See list of students");
         int choice = vc.input().nextInt();
     }

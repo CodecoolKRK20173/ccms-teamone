@@ -1,28 +1,39 @@
 package Controller;
+
+import DataBase.Dao;
+import Users.Admin;
 import View.Menu;
+
+import java.sql.SQLException;
 
 public class MenuController {
     private Menu menu = new Menu();
+    private Admin admin = new Admin();
+//    private LoginController lc = new LoginController();
 
-    public void adminChoose(int number) {
+    public void adminChoose(int number) throws SQLException {
         switch (number) {
             case 0 -> {
                 System.exit(0);
             }
             case 1 -> {
-                System.out.println("jeden");
+                System.out.println("\n" + admin.mentorAdd());
+                menu.adminMenu();
             }
             case 2 -> {
-                System.out.println("dwa");
+                System.out.println("\n" + admin.mentorsList());
+                menu.adminMenu();
             }
             case 3 -> {
-                System.out.println("jtrzy");
+                System.out.println("\n" + admin.mentorRemove());
+                menu.adminMenu();
             }
             case 4 -> {
-                System.out.println("cztery");
+                System.out.println("\nEdit mentor data");
             }
             case 5 -> {
-                System.out.println("piec");
+                System.out.println("\n" + admin.studentsList());
+                menu.adminMenu();
             }
             default -> {
                 menu.adminMenu();
