@@ -32,7 +32,8 @@ public class Admin {
         System.out.print("Enter mentor's local address: ");
         String address = vc.input().nextLine();
         try {
-            String mentor = "INSERT INTO Users ('ID_Type', 'Name', 'Password', 'email', 'Phone_number', 'Address') VALUES (3, '" + name + "'" + password + "'" + email + "'" + number + "'" + address + "');";
+            String mentor = "INSERT INTO Users ('ID', 'ID_Type', 'Name', 'Password', 'email', 'Phone_number', 'Address') VALUES (NULL, '3', '" + name + "', '" + password + "', '" + email + "', '" + number + "', '" + address + "');";
+//            String mentor = "INSERT INTO `Users` (`ID`, `ID_Type`, `Name`, `Password`, `email`, `Phone_number`, `Address`) VALUES (NULL, '3', '" + name + "', '" + "'efefefew', " + "'reerferf', '32434546', 'efefeferf');"
             if (getResult(mentor).next()) {
                 vc.add();
             } else {
