@@ -24,7 +24,11 @@ public class LoginController  {
                 vc.wrongLoginData();
             } else {
                 vc.userLogged();
-                menu.adminMenu();
+
+              chooseMenu(sql);
+
+
+
             }
         } catch (SQLException sql) {
             vc.error();
@@ -44,5 +48,34 @@ public class LoginController  {
 
     public ResultSet getResult (String sql) throws SQLException {
         return dao.connect().executeQuery(sql);
+    }
+
+    public void chooseMenu(String sql) throws SQLException {
+        switch (getAccountType(getResult(sql))) {
+            case 0 -> {
+                System.exit(0);
+            }
+            case 1 -> {
+
+                menu.adminMenu();
+            }
+            case 2 -> {
+
+                menu.employeeMenu();
+            }
+            case 3 -> {
+
+                menu.mentorMenu();
+            }
+            case 4 -> {
+                menu.studentMenu();
+            }
+
+            default -> { ;
+            }
+
+
+        }
+        chooseMenu(sql);
     }
 }
