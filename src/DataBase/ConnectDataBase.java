@@ -4,7 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-public class Dao {
+public class ConnectDataBase {
     public static Connection connect() {
         Connection cnn = null;
         try {
